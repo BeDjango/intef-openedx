@@ -476,113 +476,122 @@ msgstr ""
 msgid ""
 "That e-mail address doesn't have an associated user account. Are you sure "
 "you've registered?"
-msgstr ""
+msgstr "La dirección no tiene una cuenta asociada. ¿Está seguro que está registrado?"
 
 #: common/djangoapps/student/forms.py
 msgid ""
 "The user account associated with this e-mail address cannot reset the "
 "password."
-msgstr ""
+msgstr "La cuenta de usuario asociada con esta dirección no puede reestablecer la contraseña"
 
 #: common/djangoapps/student/forms.py
 msgid "Username must be minimum of two characters long"
-msgstr ""
+msgstr "El nombre de usuario debe tener al menos dos carácteres de longitud"
 
 #: common/djangoapps/student/forms.py
 msgid "A properly formatted e-mail is required"
-msgstr ""
+msgstr "Se requiere una dirección de correo en formato correcto"
 
 #: common/djangoapps/student/forms.py
 msgid "A valid password is required"
-msgstr ""
+msgstr "Se requiere una contraseña válida"
 
 #: common/djangoapps/student/forms.py
 msgid "Your legal name must be a minimum of two characters long"
-msgstr ""
+msgstr "El nombre legal debe ser al menos dos carácteres de longitud"
 
 #: common/djangoapps/student/forms.py
 msgid ""
 "Usernames must contain only letters, numbers, underscores (_), and hyphens "
 "(-)."
-msgstr ""
+msgstr "Los nombres de usuario deben tener sólo letras, números, subrayado (_) y guiones"
+"(-)."
 
 #: common/djangoapps/student/forms.py
 #, python-format
 msgid "Username cannot be more than %(limit_value)s characters long"
-msgstr ""
+msgstr "Los nombres de usuario no pueden superar los %(limit_value)s carácteres de longitud"
 
 #: common/djangoapps/student/forms.py
 #, python-format
 msgid "Email cannot be more than %(limit_value)s characters long"
-msgstr ""
+msgstr "La dirección de correo no debe superar %(limit_value)s carácteres de longitud"
 
 #: common/djangoapps/student/forms.py
 msgid "You must accept the terms of service."
-msgstr ""
+msgstr "Debe aceptar los términos de servicio"
 
 #: common/djangoapps/student/forms.py
 msgid "A level of education is required"
-msgstr ""
+msgstr "Debe especificar un nivel de estudios"
 
 #: common/djangoapps/student/forms.py
 msgid "Your gender is required"
-msgstr ""
+msgstr "Debe especificar su sexo"
 
 #: common/djangoapps/student/forms.py
 msgid "Your year of birth is required"
-msgstr ""
+msgstr "Debe especificar su dirección de nacimiento"
 
 #: common/djangoapps/student/forms.py
 msgid "Your mailing address is required"
-msgstr ""
+msgstr "Su dirección de correo es requerida"
 
 #: common/djangoapps/student/forms.py
 msgid "A description of your goals is required"
-msgstr ""
+msgstr "Debe especificar una descripción de sus objetivos"
 
 #: common/djangoapps/student/forms.py
 msgid "A city is required"
-msgstr ""
+msgstr "Se requiere especificar una ciudad"
 
 #: common/djangoapps/student/forms.py
 msgid "A country is required"
-msgstr ""
+msgstr "Se requiere especificar un país"
 
 #: common/djangoapps/student/forms.py
 msgid "To enroll, you must follow the honor code."
-msgstr ""
+msgstr "Para inscribirse, debe seguir el código de honor"
 
 #: common/djangoapps/student/forms.py
 msgid "You are missing one or more required fields"
-msgstr ""
+msgstr "Faltan campos requeridos"
 
 #: common/djangoapps/student/forms.py
 msgid "Username and password fields cannot match"
-msgstr ""
+msgstr "El nombre de usuario y contraseña no pueden coincidir"
 
 #: common/djangoapps/student/forms.py common/djangoapps/student/views.py
 msgid "Password: "
-msgstr ""
+msgstr "Contraseña: "
 
 #: common/djangoapps/student/forms.py
 msgid "Unauthorized email address."
-msgstr ""
+msgstr "Dirección de correo no autorizada"
 
 #: common/djangoapps/student/forms.py
 msgid ""
 "It looks like {email} belongs to an existing account. Try again with a "
 "different email address."
-msgstr ""
+msgstr "Parece que {email} ya pertenece a una cuenta existente. Intente de nuevo con una dirección diferente"
+
+#: common/djangoapps/student/forms.py
+msgid "Please mark if you are an instructor"
+msgstr "Por favor, indícanos si eres docente o no"
+
+#: common/djangoapps/student/forms.py
+msgid "An autonomous community is required"
+msgstr "Es necesario elegir una comunidad autónoma"
 
 #: common/djangoapps/student/middleware.py
 msgid ""
 "Your account has been disabled. If you believe this was done in error, "
 "please contact us at {support_email}"
-msgstr ""
+msgstr "Su cuenta ha sido deshabilitada. Si cree que fue un error, por favor contacte con {support_email}"
 
 #: common/djangoapps/student/middleware.py
 msgid "Disabled Account"
-msgstr ""
+msgstr "Cuenta deshabilitada"
 
 #: common/djangoapps/student/models.py
 msgid "Male"
