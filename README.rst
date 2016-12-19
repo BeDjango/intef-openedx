@@ -4,20 +4,68 @@ This is the main edX platform which consists of LMS and Studio.
 Installation
 ------------
 
-Please refer to the following wiki pages in our `configuration repo`_ to
-install edX:
+You need a fullstack dogwood instance of Open edX to install this repo.
 
--  `edX Developer Stack`_: These instructions are for developers who want
-   to contribute or make changes to the edX source code.
--  `edX Full Stack`_: Using Vagrant/Virtualbox this will setup all edX
-   services on a single server in a production like configuration.
--  `edX Ubuntu 12.04 64-bit Installation`_: This will install edX on an
-   existing Ubuntu 12.04 server.
+1. Log in with edxapp user
+::
+   
+   sudo -H -u edxapp bash
+   cd /edx/app/edxapp
 
-.. _configuration repo: https://github.com/edx/configuration
-.. _edX Developer Stack: https://github.com/edx/configuration/wiki/edX-Developer-Stack
-.. _edX Full Stack: https://github.com/edx/configuration/wiki/edX-Full-Stack
-.. _edX Ubuntu 12.04 64-bit Installation: https://github.com/edx/configuration/wiki/edX-Ubuntu-12.04-64-bit-Installation
+2. Activate virtualenv
+::
+   
+   source edxapp_env
+
+3. Backup of the current edx-platform repo
+::
+
+   mv edx-platform/ edx-platform-default/
+4. Clone this repo in edx-platform
+::
+   git clone https://github.com/BeDjango/intef-openedx edx-platform/
+5. Override the next variables in your lms.env.json file
+::
+
+   "REGISTRATION_EXTRA_FIELDS": {
+      "city": "optional",
+      "country": "required",
+      "gender": "hidden",
+      "goals": "hidden",
+      "honor_code": "required",
+      "level_of_education": "optional",
+      "mailing_address": "hidden",
+      "year_of_birth": "optional",
+      "comuni": "required",
+      "esdoce": "required",
+      "camp1": "optional",
+      "camp2": "optional",
+      "camp3": "optional",
+      "camp4": "optional",
+      "camp5": "optional"
+   },
+
+::
+
+   "ENABLE_COMBINED_LOGIN_REGISTRATION": false,
+6. Install node nodules
+::
+   cd edx-platform/
+   npm install
+
+7. Update the database model
+::
+   paver update_db
+8. Update assets
+::
+   paver update_assets lms --settings=aws
+   paver update_assets cms --settings=aws
+9. Restart all services
+::
+   exit
+   sudo /edx/bin/supervisorctl restart all
+   sudo service nginx restart
+
 
 
 License
