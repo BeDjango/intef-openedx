@@ -1,0 +1,42 @@
+<%inherit file="base.html" />
+<%!
+  from django.utils.translation import ugettext as _
+%>
+<%block name="title">${_("Edit External Blog")}</%block>
+<%block name="bodyclass">signedin view-signin</%block>
+
+<%block name="content">
+    <div class="wrapper-content wrapper">
+        <section class="content">
+            <header>
+                <h1 class="title title-1">${_("External Blog")}</h1>
+            </header>
+            <article class="content-primary" role="main">
+                <form method="post" >
+                    <fieldset>
+                        <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
+                        ${ form.non_field_errors() }
+                        <ol class="list-input">
+                            % for field in form:
+                                <li class="field text required">
+                                    ${ field.label_tag() }
+                                    ${ field }
+                                </li>
+                            % endfor
+                        </ol>
+                    </fieldset>
+                    <div class="form-actions">
+                      <button type="submit" id="submit" name="submit" class="action action-primary">${_("Edit")}</button>
+                    </div>
+                </form>
+            </article>
+
+            <aside class="content-supplementary" role="complementary">
+                <div class="bit">
+                    <h3 class="title-3">${_("What is this tab?")}</h3>
+                    <p>${_("This tab is an external link to a web address. Here you can change the destination web address and the name that students will see the tab.")}</p>
+                </div>
+            </aside>
+        </section>
+    </div>
+</%block>

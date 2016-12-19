@@ -1,0 +1,169 @@
+<%inherit file="/main.html" />
+<%namespace name='static' file='/static_content.html'/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+from django.conf import settings
+%>
+
+<%block name="headextra">
+  <%static:css group='style-course-vendor'/>
+  <%static:css group='style-vendor-tinymce-content'/>
+  <%static:css group='style-vendor-tinymce-skin'/>
+  <%static:css group='style-course'/>
+  <script type="text/javascript">
+    // This is a hack to get tinymce to work correctly in Firefox until the annotator tool is refactored to not include
+    // tinymce globally.
+    if(typeof window.Range.prototype === "undefined") {
+        window.Range.prototype = { };
+    }
+  </script>
+  <script type="text/javascript" src="${static.url('js/instructor_dashboard/proctoring.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/date.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/mustache.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/flot/jquery.flot.axislabels.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jquery-jvectormap-1.1.1/jquery-jvectormap-1.1.1.min.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jquery-jvectormap-1.1.1/jquery-jvectormap-world-mill-en.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jquery.event.drag-2.2.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jquery.event.drop-2.2.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/slick.core.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/slick.grid.js')}"></script>
+  <link rel="stylesheet" href="${static.url('css/vendor/slickgrid/smoothness/jquery-ui-1.8.16.custom.css')}">
+  <link rel="stylesheet" href="${static.url('css/vendor/slickgrid/slick.grid.css')}">
+  <script type="text/javascript" src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/tinymce/js/tinymce/tinymce.full.min.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/tinymce/js/tinymce/jquery.tinymce.min.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jQuery-File-Upload/js/jquery.fileupload.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/vendor/jquery.qubit.js')}"></script>
+
+  <%static:js group='module-descriptor-js'/>
+  <%static:js group='instructor_dash'/>
+  <%static:js group='application'/>
+
+  ## Backbone classes declared explicitly until RequireJS is supported
+  <script type="text/javascript" src="${static.url('js/models/notification.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/views/notification.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/views/file_uploader.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/utils/animation.js')}"></script>
+</%block>
+
+## Include Underscore templates
+<%block name="header_extras">
+% for template_name in ["cohorts", "enrollment-code-lookup-links", "cohort-editor", "cohort-group-header", "cohort-selector", "cohort-form", "notification", "cohort-state", "cohort-discussions-inline", "cohort-discussions-course-wide", "cohort-discussions-category","cohort-discussions-subcategory","certificate-white-list","certificate-white-list-editor","certificate-bulk-white-list"]:
+<script type="text/template" id="${template_name}-tpl">
+  <%static:include path="instructor/instructor_dashboard_2/${template_name}.underscore" />
+</script>
+% endfor
+
+<script type="text/template" id="file-upload-tpl">
+  <%static:include path="file-upload.underscore" />
+</script>
+</%block>
+
+<style type="text/css">
+a.active-section {
+    color: #551A8B;
+}
+.sysadmin-dashboard-content h2 a {
+    margin-right: 1.2em;
+}
+table.stat_table {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+table.stat_table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.stat_table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+
+a.selectedmode { background-color: yellow; }
+
+textarea {
+  height: 200px;
+}
+</style>
+
+<script language="JavaScript" type="text/javascript"></script>
+<script>
+tinymce.init({ 
+	selector:'textarea',
+	plugins: "image"
+	});
+</script>
+
+<section class="container">
+  <div class="instructor-dashboard-wrapper-2">
+<section class="instructor-dashboard-content-2" id="instructor-dashboard-content">
+ <ul class="instructor-nav" style="display: none">
+        <li class="nav-item"><a href="" data-section="send_email">Email</a></li>
+
+        <li class="nav-item"><a href="" data-section="course_info">Course Info</a></li>
+        
+        <li class="nav-item"><a href="" data-section="membership">Membership</a></li>
+        
+        <li class="nav-item"><a href="" data-section="cohort_management">Cohorts</a></li>
+        
+        <li class="nav-item"><a href="" data-section="student_admin">Student Admin</a></li>
+        
+        <li class="nav-item"><a href="" data-section="data_download">Data Download</a></li>
+    </ul>
+<section id="send_email" class="idash-section">
+<div class="vert-left send-email" id="section-send-email">
+      <h1>${_("Send email for all users")}</h1>
+
+      <p>${_("In this section you can send an email to all registered users on {platform_name}").format(platform_name=settings.PLATFORM_NAME)}</p>
+
+      <form method="post" >
+        <fieldset>
+          <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
+          ${ form.non_field_errors() }
+          <ol class="list-input">
+            % for field in form:
+              <li class="field text required">
+                ${ field.label_tag() }
+                ${ field }
+              </li>
+              <br>
+              <br>
+            % endfor
+          </ol>
+        </fieldset>
+        <div class="form-actions">
+          <button type="submit" id="submit" name="submit" class="action action-primary">${_("Send Email")}</button>
+        </div>
+      </form>
+
+      %if settings.FEATURES.get('ENABLE_INSTRUCTOR_BACKGROUND_TASKS'):
+        <div class="running-tasks-container action-type-container">
+          <hr>
+          <h2> ${_("Pending Tasks")} </h2>
+          <div class="running-tasks-section">
+            <p>${_("Email actions run in the background. The status for any active tasks - including email tasks - appears in a table below.")} </p>
+            <br />
+
+            <div class="running-tasks-table" data-endpoint="${reverse('list_emails_for_all_users_tasks')}"></div>
+          </div>
+          <div class="no-pending-tasks-message"></div>
+        </div>
+        <hr>
+      %endif
+         
+    </section>
+    </section>
+  </div>
+</section>
