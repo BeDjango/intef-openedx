@@ -1,7 +1,7 @@
 # The Open edX Platform by INTEF
-### MOOC.EDUCALAB.ES
-### NOOC.EDUCALAB.ES
-###SPOOC.EDUCALAB.ES 
+### [MOOC.EDUCALAB.ES](http://mooc.educalab.es)
+### [NOOC.EDUCALAB.ES](http://nooc.educalab.es)
+### [SPOOC.EDUCALAB.ES](http://spooc.educalab.es)
 
 [![Educalab](/educalab_linea.jpg)](http://educalab.es)
 [![Mooc INTEF](/logo_moocintef.png)](http://mooc.educalab.es)
@@ -74,7 +74,7 @@ Update assets
 $   paver update_assets lms --settings=aws
 $   paver update_assets cms --settings=aws
 ```
-9. Restart all services
+Restart all services
 
 ```sh
    exit
