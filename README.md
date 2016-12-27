@@ -78,5 +78,4 @@ $   paver update_assets cms --settings=aws
 The code in this repository is licensed under version 3 of the AGPL
 unless otherwise noted. Please see the `LICENSE`_ file for details.
 
-SEE: [LICENSE](blob/master/LICENSE)
-
+SEE: [LICENSE](LICENSE)
