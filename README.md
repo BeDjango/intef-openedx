@@ -3,7 +3,7 @@
 ### NOOC.EDUCALAB.ES
 ###SPOOC.EDUCALAB.ES 
 
-[![Educalab](/educalab_linea.jpg](http://educalab.es)
+[![Educalab](/educalab_linea.jpg)](http://educalab.es)
 [![Mooc INTEF](/logo_moocintef.png)](http://mooc.educalab.es)
 
 
