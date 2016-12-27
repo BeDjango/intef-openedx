@@ -1,7 +1,11 @@
 # The Open edX Platform by INTEF
-[![Mooc INTEF](/logo_moocintef.png?raw=true)](http://mooc.educalab.es) [![Educalab](/educalab_linea.jpg?raw=true)](http://educalab.es)
+### MOOC.EDUCALAB.ES
+### NOOC.EDUCALAB.ES
+###SPOOC.EDUCALAB.ES 
 
-# MOOC.EDUCALAB.ES - NOOC.EDUCALAB.ES - SPOOC.EDUCALAB.ES 
+[![Educalab](/educalab_linea.jpg?raw=true)](http://educalab.es) [![Mooc INTEF](/logo_moocintef.png?raw=true)](http://mooc.educalab.es)
+
+
 **Powered By**
 [![Open edX](/open_edX-logo.png)](https://open.edx.org/) [![BeDjango](/BeDjango_logo.jpg)](http://www.bedjango.com/)
 
