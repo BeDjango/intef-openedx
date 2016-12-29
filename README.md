@@ -1,5 +1,5 @@
 # The Open edX Platform by INTEF
-INTEF: National Institute of Educational Technologies and Teacher Training - Ministry of Education - Spain
+[INTEF](http://educalab.es/intef/introduccion): National Institute of Educational Technologies and Teacher Training - Ministry of Education - Spain
 ### [MOOC.EDUCALAB.ES](http://mooc.educalab.es)
 ### [NOOC.EDUCALAB.ES](http://nooc.educalab.es)
 ### [SPOOC.EDUCALAB.ES](http://spooc.educalab.es)
